@@ -14,5 +14,7 @@ private :
 public:
     BigDecimalInt() ;
     BigDecimalInt(string num) ; 
+    BigDecimalInt operator + (BigDecimalInt num2) ;
+    string getNum() ;
 
 };

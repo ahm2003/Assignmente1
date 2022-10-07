@@ -110,6 +110,66 @@ BigDecimalInt :: BigDecimalInt(string num )
         
     }
 }
+
+BigDecimalInt  BigDecimalInt :: operator + (BigDecimalInt num2)
+{
+    string  result = "";
+    if(decStr> num2.decStr)
+    {
+        swap(decStr,num2.decStr) ;
+    }
+    int end =0 ; 
+
+    if (decStr[0]=='-' && num2.decStr[0]=='-')
+    {
+        end = 1 ;
+    }
+
+    // if num is negative
+    if (end == 1)
+    {
+        reverse(decStr.begin()+1, decStr.end()) ;
+        reverse(num2.decStr.begin()+1, num2.decStr.end()) ;
+    }
+    
+    // if num is positive
+   else
+   {
+        reverse(decStr.begin(), decStr.end()) ;
+        reverse(num2.decStr.begin(), num2.decStr.end()) ;
+   }
+    
+
+    int carry = 0 , sum = 0 ;
+    int l1 =decStr.length() , l2 = num2.decStr.length() ;
+
+// adding smallest number with biggest one;
+    for (int i = end ; i < l1 ; i ++)
+    {
+        sum = (decStr[i] -'0')+ (num2.decStr[i] -'0') + carry ;
+        carry = sum / 10 ;
+        result.push_back(sum % 10 +'0') ;
+    }
+// adding the remainder digit of biggest num ;
+    for (int i = l1 ; i < l2 ; i ++)
+    {
+        sum = (num2.decStr[i]-'0') + carry ;
+        carry = sum /10 ;
+        result.push_back(sum % 10 + '0') ;
+    }
+
+    if (end == 1 ) {
+        result +='-' ;
+    }
+    reverse(result.begin() , result.end()) ;
+    decStr = result ;
+    return BigDecimalInt(decStr) ;
+}
+
+string BigDecimalInt :: getNum()
+{
+    return decStr ;
+}
 int main()
 {
     BigDecimalInt b1("+99999999999999999999999999999999999999999999999999999999999999999999999999") ,b2("+99999988888888888888888888888888888899999999999999999999999");
@@ -119,3 +179,4 @@ int main()
         cout<<"0";
 return 0;
 }
+

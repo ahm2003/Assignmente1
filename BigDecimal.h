@@ -12,7 +12,6 @@ private :
     string decStr ;
    
     bool checkInput(string num) ;
-
 public:
     int flag ;
     BigDecimalInt();

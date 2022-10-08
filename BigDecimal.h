@@ -17,6 +17,7 @@ public:
     BigDecimalInt();
     BigDecimalInt(string num) ; 
     BigDecimalInt operator + (BigDecimalInt num2) ;
+    BigDecimalInt operator = (BigDecimalInt num3) ;
     bool operator > (BigDecimalInt num3) ;
     bool operator == (BigDecimalInt num3) ;
     string getNum();

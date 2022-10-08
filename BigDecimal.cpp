@@ -5,6 +5,10 @@
 # include <vector>
 # include "BigDecimal.h"
 using namespace std ;
+    BigDecimalInt BigDecimalInt :: operator = (BigDecimalInt num3){
+        decStr=num3.decStr;
+        return decStr;
+    }
 
 bool BigDecimalInt::operator > (BigDecimalInt num3 )
 {
@@ -194,11 +198,22 @@ bool BigDecimalInt::operator == (BigDecimalInt num3 )
 }
 int main()
 {
+    
+    /*BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ,b2("+99999999999999999999999999999999999999999999999999999999999999999999999999");
+    if (b1 > b2)
+        cout<<"1";
+    else
+        cout<<"0";
+        
     BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ,b2("+99999999999999999999999999999999999999999999999999999999999999999999999999");
     if (b1 == b2)
         cout<<"1";
     else
         cout<<"0";
+        
+    BigDecimalInt b1("+99999999999999999999999999999999999999999999999999999999999999999999999999") ,b2("+99999999999999");
+    b1 = b2 ;
+    cout<<b1.getNum();*/
 return 0;
 }
 

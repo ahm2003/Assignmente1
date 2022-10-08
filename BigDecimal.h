@@ -1,4 +1,4 @@
-# pragma once 
+//# pragma once 
 # include <iostream>
 # include <regex>
 # include<algorithm>
@@ -18,8 +18,7 @@ public:
     BigDecimalInt(string num) ; 
     BigDecimalInt operator + (BigDecimalInt num2) ;
     bool operator > (BigDecimalInt num3) ;
-    string getNum()
-    {
-        return decStr ;
-    }
+    bool operator == (BigDecimalInt num3) ;
+    string getNum();
+    
 };

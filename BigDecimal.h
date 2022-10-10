@@ -3,6 +3,8 @@
 # include <regex>
 # include<algorithm>
 # include <cmath>
+# include<string>
+# include<cstring>
 # include <vector>
 
 using namespace std ;
@@ -20,10 +22,15 @@ public:
     int length;
     BigDecimalInt();
     BigDecimalInt(string num) ; 
+    BigDecimalInt(int num) ;
     BigDecimalInt operator + (BigDecimalInt num2) ;
     BigDecimalInt operator = (BigDecimalInt num3) ;
     bool operator > (BigDecimalInt num3) ;
+<<<<<<< Updated upstream
     bool operator == (BigDecimalInt num3) ;
     string getNum();
     
+=======
+    string getNum() ; 
+>>>>>>> Stashed changes
 };

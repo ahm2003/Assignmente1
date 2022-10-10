@@ -1,8 +1,3 @@
-# include <iostream>
-# include <regex>
-# include<algorithm>
-# include <cmath>
-# include <vector>
 # include "BigDecimal.h"
 using namespace std ;
     BigDecimalInt BigDecimalInt :: operator = (BigDecimalInt num3){
@@ -177,7 +172,7 @@ BigDecimalInt  BigDecimalInt :: operator + (BigDecimalInt num2)
     }
     reverse(result.begin() , result.end()) ;
     decStr = result ;
-    return BigDecimalInt(decStr) ;
+    return BigDecimalInt(decStr);
 }
 
 string BigDecimalInt :: getNum()
@@ -205,10 +200,37 @@ bool BigDecimalInt::operator == (BigDecimalInt num3 )
 }
     return flag;
 }
+//   BigDecimalInt BigDecimalInt :: operator = (BigDecimalInt num3){
+ 
+/*BigDecimalInt friend:: operator << ( BigDecimalInt b)
+{
+    ostream& out;
+    for (int i = 0; i <= b.size(); i++) {
+        out << b[i];
+    }
+ return out;
+}
+    void BigDecimalInt :: add_new_text(BigDecimalInt b){
+    b=decStr;
+    ostream &out ;
+    out.open("friend.txt");
+    if (out.fail()){
+        cout<<"sorry , we cannot open the file "<<endl;
+    }
+    else{
+        cout<<"mission done "<<endl;
+    }
+    while(!out.eof()){
+        out<<b<<endl;
+        }
+    out.close();
+    return out;
+}
+*/
 int main()
 { 
     BigDecimalInt b1("-999999999999999999999999998999999999999999999999999999999999999999999999999") ;
-    cout<<b1.sign();
+  //  b1.add_new_text();
     /*BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ;
     cout<<b1.size();
     

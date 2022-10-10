@@ -1,19 +1,21 @@
 //# pragma once 
 # include <iostream>
+# include <fstream>
 # include <regex>
 # include<algorithm>
 # include <cmath>
 # include <vector>
-
 using namespace std ;
 
 class BigDecimalInt{
 private :
+    ostream out;
     string decStr ;
-    
-   
     bool checkInput(string num) ;
 public:
+    
+    void add_new_text(BigDecimalInt b);
+    friend ostream& operator << ( ostream& out , BigDecimalInt b);
     int flag ;
     int size();
     int sign();

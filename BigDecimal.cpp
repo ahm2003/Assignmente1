@@ -89,7 +89,10 @@ bool BigDecimalInt::operator > (BigDecimalInt num3 )
     }
     return false ;
 }
-
+int BigDecimalInt :: size(){
+    length= decStr.size();
+    return length;
+}
 BigDecimalInt :: BigDecimalInt(): decStr("0"){} ;
 
 bool BigDecimalInt :: checkInput(string num)
@@ -193,11 +196,13 @@ bool BigDecimalInt::operator == (BigDecimalInt num3 )
     }
     else{
         flag = 0 ;
-        return false;
 }
+    return flag;
 }
 int main()
-{
+{ 
+    BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ;
+    cout<<b1.size();
     
     /*BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ,b2("+99999999999999999999999999999999999999999999999999999999999999999999999999");
     if (b1 > b2)

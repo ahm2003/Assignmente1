@@ -10,10 +10,13 @@ using namespace std ;
 class BigDecimalInt{
 private :
     string decStr ;
+    
    
     bool checkInput(string num) ;
 public:
     int flag ;
+    int size();
+    int length;
     BigDecimalInt();
     BigDecimalInt(string num) ; 
     BigDecimalInt operator + (BigDecimalInt num2) ;

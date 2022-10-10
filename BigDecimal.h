@@ -16,6 +16,7 @@ private :
 public:
     int flag ;
     int size();
+    int sign();
     int length;
     BigDecimalInt();
     BigDecimalInt(string num) ; 

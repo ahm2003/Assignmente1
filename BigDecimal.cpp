@@ -1,3 +1,8 @@
+# include <iostream>
+# include <regex>
+# include<algorithm>
+# include <cmath>
+# include <vector>
 # include "BigDecimal.h"
 using namespace std ;
     BigDecimalInt BigDecimalInt :: operator = (BigDecimalInt num3){
@@ -84,6 +89,7 @@ bool BigDecimalInt::operator > (BigDecimalInt num3 )
     }
     return false ;
 }
+<<<<<<< Updated upstream
 int BigDecimalInt :: sign(){
     if (decStr[0]!='-')
         return '+';
@@ -95,6 +101,10 @@ int BigDecimalInt :: size(){
     return length;
 }
 BigDecimalInt :: BigDecimalInt(): decStr("0"){} ;
+=======
+
+BigDecimalInt :: BigDecimalInt(): decStr("0"){} 
+>>>>>>> Stashed changes
 
 bool BigDecimalInt :: checkInput(string num)
 {

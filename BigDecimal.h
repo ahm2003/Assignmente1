@@ -26,11 +26,11 @@ public:
     BigDecimalInt operator + (BigDecimalInt num2) ;
     BigDecimalInt operator = (BigDecimalInt num3) ;
     bool operator > (BigDecimalInt num3) ;
-<<<<<<< Updated upstream
+
     bool operator == (BigDecimalInt num3) ;
     string getNum();
     
-=======
+
     string getNum() ; 
->>>>>>> Stashed changes
+
 };

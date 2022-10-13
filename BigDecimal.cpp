@@ -91,7 +91,7 @@ bool BigDecimalInt::operator > (BigDecimalInt num3 )
     }
     return false ;
 }
-<<<<<<< Updated upstream
+
 int BigDecimalInt :: sign(){
     if (decStr[0]!='-')
         return '+';
@@ -103,10 +103,10 @@ int BigDecimalInt :: size(){
     return length;
 }
 BigDecimalInt :: BigDecimalInt(): decStr("0"){} ;
-=======
+
 
 BigDecimalInt :: BigDecimalInt(): decStr("0"){} 
->>>>>>> Stashed changes
+
 
 bool BigDecimalInt :: checkInput(string num)
 {
@@ -132,16 +132,17 @@ BigDecimalInt :: BigDecimalInt(string num )
     }
 }
 
+
 BigDecimalInt  BigDecimalInt :: operator + (BigDecimalInt num2)
 {
     string  result = "";
-    if(decStr> num2.decStr)
+    if(decStr.size()> num2.decStr.size())
     {
         swap(decStr,num2.decStr) ;
     }
     int end =0 ; 
 
-    if (decStr[0]=='-' && num2.decStr[0]=='-')
+    if ((decStr[0]=='-' && num2.decStr[0]=='-')||(decStr[0] == '+' && num2.decStr[0] =='+'))
     {
         end = 1 ;
     }
@@ -179,13 +180,18 @@ BigDecimalInt  BigDecimalInt :: operator + (BigDecimalInt num2)
         result.push_back(sum % 10 + '0') ;
     }
 
-    if (end == 1 ) {
+    if (end == 1 && decStr[0]=='-') {
         result +='-' ;
+    }
+    else
+    {
+        result += '+' ;
     }
     reverse(result.begin() , result.end()) ;
     decStr = result ;
     return BigDecimalInt(decStr) ;
 }
+
 
 string BigDecimalInt :: getNum()
 {
@@ -212,28 +218,5 @@ bool BigDecimalInt::operator == (BigDecimalInt num3 )
 }
     return flag;
 }
-int main()
-{ 
-    BigDecimalInt b1("-999999999999999999999999998999999999999999999999999999999999999999999999999") ;
-    cout<<b1.sign();
-    /*BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ;
-    cout<<b1.size();
-    
-    BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ,b2("+99999999999999999999999999999999999999999999999999999999999999999999999999");
-    if (b1 > b2)
-        cout<<"1";
-    else
-        cout<<"0";
-        
-    BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ,b2("+99999999999999999999999999999999999999999999999999999999999999999999999999");
-    if (b1 == b2)
-        cout<<"1";
-    else
-        cout<<"0";
-        
-    BigDecimalInt b1("+99999999999999999999999999999999999999999999999999999999999999999999999999") ,b2("+99999999999999");
-    b1 = b2 ;
-    cout<<b1.getNum();*/
-return 0;
-}
+
 

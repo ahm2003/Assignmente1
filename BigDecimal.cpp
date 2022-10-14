@@ -1,8 +1,8 @@
-# include <iostream>
-# include <regex>
 # include<algorithm>
 # include <cmath>
 # include <vector>
+# include<string>
+# include <cstring>
 # include "BigDecimal.h"
 using namespace std ;
     BigDecimalInt BigDecimalInt :: operator = (BigDecimalInt num3){
@@ -89,7 +89,6 @@ bool BigDecimalInt::operator > (BigDecimalInt num3 )
     }
     return false ;
 }
-<<<<<<< Updated upstream
 int BigDecimalInt :: sign(){
     if (decStr[0]!='-')
         return '+';
@@ -97,14 +96,12 @@ int BigDecimalInt :: sign(){
         return '-';
 }
 int BigDecimalInt :: size(){
-    length= decStr.size();
-    return length;
+    len= decStr.size();
+    return len;
 }
 BigDecimalInt :: BigDecimalInt(): decStr("0"){} ;
-=======
 
-BigDecimalInt :: BigDecimalInt(): decStr("0"){} 
->>>>>>> Stashed changes
+//BigDecimalInt :: BigDecimalInt(): decStr("0"){} 
 
 bool BigDecimalInt :: checkInput(string num)
 {
@@ -129,8 +126,9 @@ BigDecimalInt :: BigDecimalInt(string num )
         
     }
 }
-
-BigDecimalInt  BigDecimalInt :: operator + (BigDecimalInt num2)
+   
+ 
+BigDecimalInt BigDecimalInt :: operator + (BigDecimalInt num2)
 {
     string  result = "";
     if(decStr> num2.decStr)
@@ -182,14 +180,14 @@ BigDecimalInt  BigDecimalInt :: operator + (BigDecimalInt num2)
     }
     reverse(result.begin() , result.end()) ;
     decStr = result ;
-    return BigDecimalInt(decStr);
+    return BigDecimalInt(decStr) ;
 }
 
 string BigDecimalInt :: getNum()
 {
     return decStr ;
 }
-bool BigDecimalInt::operator == (BigDecimalInt num3 )
+bool BigDecimalInt::operator == (BigDecimalInt num3)
 {
     int temp1 ,temp2;
     temp1= decStr.size();
@@ -210,37 +208,12 @@ bool BigDecimalInt::operator == (BigDecimalInt num3 )
 }
     return flag;
 }
-//   BigDecimalInt BigDecimalInt :: operator = (BigDecimalInt num3){
- 
-/*BigDecimalInt friend:: operator << ( BigDecimalInt b)
-{
-    ostream& out;
-    for (int i = 0; i <= b.size(); i++) {
-        out << b[i];
-    }
- return out;
-}
-    void BigDecimalInt :: add_new_text(BigDecimalInt b){
-    b=decStr;
-    ostream &out ;
-    out.open("friend.txt");
-    if (out.fail()){
-        cout<<"sorry , we cannot open the file "<<endl;
-    }
-    else{
-        cout<<"mission done "<<endl;
-    }
-    while(!out.eof()){
-        out<<b<<endl;
-        }
-    out.close();
-    return out;
-}
-*/
 int main()
 { 
-    BigDecimalInt b1("-999999999999999999999999998999999999999999999999999999999999999999999999999") ;
-  //  b1.add_new_text();
+    BigDecimalInt b("-999999999999999999999999998999999999999999999999999999999999999999999999999") ;
+    cout<<b;
+
+/*    cout<<b1.sign();
     /*BigDecimalInt b1("+999999999999999999999999998999999999999999999999999999999999999999999999999") ;
     cout<<b1.size();
     

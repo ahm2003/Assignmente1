@@ -131,13 +131,13 @@ BigDecimalInt :: BigDecimalInt(string num )
 BigDecimalInt BigDecimalInt :: operator + (BigDecimalInt num2)
 {
     string  result = "";
-    if(decStr> num2.decStr)
+    if(decStr.size()> num2.decStr.size())
     {
         swap(decStr,num2.decStr) ;
     }
     int end =0 ; 
 
-    if (decStr[0]=='-' && num2.decStr[0]=='-')
+    if ((decStr[0]=='-' && num2.decStr[0]=='-')||(decStr[0] == '+' && num2.decStr[0] =='+'))
     {
         end = 1 ;
     }
@@ -175,13 +175,18 @@ BigDecimalInt BigDecimalInt :: operator + (BigDecimalInt num2)
         result.push_back(sum % 10 + '0') ;
     }
 
-    if (end == 1 ) {
+    if (end == 1 && decStr[0]=='-') {
         result +='-' ;
+    }
+    else
+    {
+        result += '+' ;
     }
     reverse(result.begin() , result.end()) ;
     decStr = result ;
     return BigDecimalInt(decStr) ;
 }
+
 
 string BigDecimalInt :: getNum()
 {

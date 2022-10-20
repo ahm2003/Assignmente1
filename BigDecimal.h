@@ -1,32 +1,24 @@
 //# pragma once 
-# include <iostream>
-# include <regex>
-# include<algorithm>
-# include <cmath>
-# include<string>
-# include<cstring>
-# include <vector>
-# include <fstream>
 #include <bits/stdc++.h>
 using namespace std ;
 
 class BigDecimalInt{
 private :
     string decStr ;
+    int flag ;
+    int len;
     bool checkInput(string num) ;
 public:
-    int flag ;
-    int size();
-    int sign();
-    int len;
+    string getNum();
     BigDecimalInt();
     BigDecimalInt(string num) ; 
     BigDecimalInt(int num) ;
     BigDecimalInt operator + (BigDecimalInt num2) ;
-    BigDecimalInt operator = (BigDecimalInt num3) ;
     bool operator > (BigDecimalInt num3) ;
     bool operator == (BigDecimalInt num3) ;
-    string getNum();
+    BigDecimalInt operator = (BigDecimalInt num3) ;
+    int size();
+    int sign();
     friend ostream &operator <<(ostream &out , BigDecimalInt b);
     };
     ostream &operator <<(ostream &out , BigDecimalInt b){

@@ -1,8 +1,3 @@
-# include<algorithm>
-# include <cmath>
-# include <vector>
-# include<string>
-# include <cstring>
 # include "BigDecimal.h"
 using namespace std ;
     BigDecimalInt BigDecimalInt :: operator = (BigDecimalInt num3){

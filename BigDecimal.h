@@ -6,10 +6,10 @@ using namespace std ;
 class BigDecimalInt{
 private :
     string decStr ;
-    int flag ;
     int len;
     bool checkInput(string num) ;
 public:
+    int flag;
     string getNum();
     BigDecimalInt();
     BigDecimalInt(string num) ;
@@ -17,6 +17,7 @@ public:
     BigDecimalInt operator + (BigDecimalInt num2) ;
     BigDecimalInt operator - (BigDecimalInt num2) ;
     bool operator > (BigDecimalInt num3) ;
+    bool operator < (BigDecimalInt num3) ;
     bool operator == (BigDecimalInt num3) ;
     BigDecimalInt operator = (BigDecimalInt num3) ;
     int size();

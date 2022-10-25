@@ -86,9 +86,9 @@ bool BigDecimalInt::operator > (BigDecimalInt num3 )
 }
 int BigDecimalInt :: sign(){
     if (decStr[0]!='-')
-        return '+';
+        return 1 ;
     else
-        return '-';
+        return -1;
 }
 int BigDecimalInt :: size(){
     len = decStr.size();

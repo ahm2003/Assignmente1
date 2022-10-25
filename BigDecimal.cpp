@@ -196,7 +196,17 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
     string temp1=num2.decStr,temp2=decStr;
     int l1 =decStr.length(),l2 =num2.decStr.length(), carry, sum,sum2;
 
-    if(decStr[0]=='-' && num2.decStr[0] !='-'){
+
+
+
+     if (num2.decStr[0]=='+'){
+        reverse(num2.decStr.begin(), num2.decStr.end()) ;
+        num2.decStr.pop_back();
+        reverse(num2.decStr.begin(), num2.decStr.end()) ;
+        return BigDecimalInt(BigDecimalInt(decStr)-BigDecimalInt(num2));
+    }
+
+     if(decStr[0]=='-' && num2.decStr[0] !='-'){
         reverse(decStr.begin(), decStr.end()) ;
         reverse(num2.decStr.begin(), num2.decStr.end()) ;
         num2.decStr.push_back('-');
@@ -259,7 +269,7 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
 
     }
 
-    else if(l1>l2){
+    else if(l1>l2 && l2 != 1){
         reverse(decStr.begin(), decStr.end()) ;
         reverse(num2.decStr.begin(), num2.decStr.end()) ;
     for(int i = 0 ;i < l2; i++){
@@ -301,6 +311,22 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
     }
     }
 
+
+
+    else if(l1>l2 && l2 == 1){
+        reverse(decStr.begin(), decStr.end()) ;
+        reverse(num2.decStr.begin(), num2.decStr.end()) ;
+    for(int i = 0 ;i < l2; i++){
+        if(decStr[i] >= num2.decStr[i]){
+        sum = (decStr[i] -'0') - (num2.decStr[i] -'0') ;
+        result.push_back(sum % 10 +'0') ;
+        }
+        else if(decStr[i]<num2.decStr[i]){
+            sum = ((decStr[i] -'0') - (num2.decStr[i] -'0'))+10 ;
+            result.push_back(sum % 10 +'0') ;
+        }
+    }
+    }
 
 
     else if(l1<l2){
@@ -358,6 +384,8 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
 
     if(result[0]=='0')
       result.erase(remove(result.begin(),result.end(),result[0]),result.end());
+    if(result[1]=='0' && result[0]=='-')
+    result.erase(remove(result.begin(),result.end(),result[1]),result.end());
     if(carry == 1){
         result2.push_back('-');
         reverse(result2.begin() , result2.end()) ;

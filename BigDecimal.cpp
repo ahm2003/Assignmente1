@@ -269,129 +269,102 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
 
     }
 
-    else if(l1>l2 && l2 != 1){
-        reverse(decStr.begin(), decStr.end()) ;
-        reverse(num2.decStr.begin(), num2.decStr.end()) ;
-    for(int i = 0 ;i < l2; i++){
-        if(decStr[i] >= num2.decStr[i]){
-        sum = (decStr[i] -'0') - (num2.decStr[i] -'0') ;
-        result.push_back(sum % 10 +'0') ;
-        }
-        else if(decStr[i]<num2.decStr[i]){
-            sum = ((decStr[i] -'0') - (num2.decStr[i] -'0'))+10 ;
-            decStr[i+1] = decStr[i+1] - 1;
-            if(decStr[l1-1]<num2.decStr[l2-1]){
-                carry = 1;
-            }
-            result.push_back(sum % 10 +'0') ;
-        }
-    }
-        if(carry==1){
-            reverse(temp1.begin(), temp1.end()) ;
-            reverse(temp2.begin(), temp2.end()) ;
-        for(int j = 0 ;j < l2; j++){
-            if(temp1[j] >= temp2[j]){
-                sum2 = (temp1[j] -'0') - (temp2[j] -'0') ;
-                result2.push_back(sum2 % 10 +'0') ;
-            }
-            else if(temp1[j]<temp2[j]){
-                sum2 = ((temp1[j] -'0') - (temp2[j] -'0'))+10 ;
-                temp1[j+1] = temp1[j+1] - 1;
-                result2.push_back(sum2 % 10 +'0') ;
-            }
-
-
-        }
-    }
-    for(int x=l2;x<l1;x++){
-        if(carry ==0)
-            result.push_back(decStr[x]);
-        else if(carry == 1)
-           result2.push_back(decStr[x]);
-    }
-    }
 
 
 
-    else if(l1>l2 && l2 == 1){
-        reverse(decStr.begin(), decStr.end()) ;
-        reverse(num2.decStr.begin(), num2.decStr.end()) ;
-    for(int i = 0 ;i < l2; i++){
-        if(decStr[i] >= num2.decStr[i]){
-        sum = (decStr[i] -'0') - (num2.decStr[i] -'0') ;
-        result.push_back(sum % 10 +'0') ;
-        }
-        else if(decStr[i]<num2.decStr[i]){
-            sum = ((decStr[i] -'0') - (num2.decStr[i] -'0'))+10 ;
-            result.push_back(sum % 10 +'0') ;
-        }
-    }
+    else if(l1>l2){
+        reverse(decStr.begin(), decStr.end());
+        reverse(num2.decStr.begin(), num2.decStr.end());
+
+        int carry = 0;
+
+        for (int i = 0; i < l2; i++) {
+		// Do school mathematics, compute difference of
+		// current digits
+
+		 sum= ((decStr[i] - '0') - (num2.decStr[i] - '0') - carry);
+
+		// If subtraction is less than zero
+		// we add then we add 10 into sub and
+		// take carry as 1 for calculating next step
+		if (sum < 0) {
+			sum = sum + 10;
+			carry = 1;
+		}
+		else
+			carry = 0;
+
+		result.push_back(sum + '0');
+	}
+
+	// subtract remaining digits of larger number
+        for (int i = l2; i < l1; i++) {
+		 sum = ((decStr[i] - '0') - carry);
+
+		// if the sub value is -ve, then make it positive
+		if (sum < 0) {
+			sum = sum + 10;
+			carry = 1;
+		}
+		else
+			carry = 0;
+
+		result.push_back(sum + '0');
+	}
     }
 
 
     else if(l1<l2){
         swap(decStr,num2.decStr);
-        reverse(decStr.begin(), decStr.end()) ;
-        reverse(num2.decStr.begin(), num2.decStr.end()) ;
-    for(int i = 0 ;i < l1; i++){
-        if(decStr[i] >= num2.decStr[i]){
-        sum = (decStr[i] -'0') - (num2.decStr[i] -'0') ;
-        result.push_back(sum % 10 +'0') ;
-        }
-        else if(decStr[i]<num2.decStr[i]){
-            sum = ((decStr[i] -'0') - (num2.decStr[i] -'0'))+10 ;
-            decStr[i+1] = decStr[i+1] - 1;
-            if(decStr[l1-1]<num2.decStr[l2-1]){
-                carry = 1;
-            }
-            result.push_back(sum % 10 +'0') ;
-        }
-    }
-        if(carry==1){
-            reverse(temp1.begin(), temp1.end()) ;
-            reverse(temp2.begin(), temp2.end()) ;
-        for(int j = 0 ;j < l1; j++){
-            if(temp1[j] >= temp2[j]){
-                sum2 = (temp1[j] -'0') - (temp2[j] -'0') ;
-                result2.push_back(sum2 % 10 +'0') ;
-            }
-            else if(temp1[j]<temp2[j]){
-                sum2 = ((temp1[j] -'0') - (temp2[j] -'0'))+10 ;
-                temp1[j+1] = temp1[j+1] - 1;
-                result2.push_back(sum2 % 10 +'0') ;
-            }
+        reverse(decStr.begin(), decStr.end());
+        reverse(num2.decStr.begin(), num2.decStr.end());
 
+        int carry = 0;
 
-        }
-    }
-    for(int x=l1;x<l2;x++){
-        if(carry ==0)
-            result.push_back(decStr[x]);
-        else if(carry == 1)
-           result2.push_back(decStr[x]);
-    }
-    if(carry ==0)
-        result.push_back('-');
-    else if(carry ==1)
-        result2.push_back('-');
-    }
+        for (int i = 0; i < l1; i++) {
+		// Do school mathematics, compute difference of
+		// current digits
 
+		 sum= ((decStr[i] - '0') - (num2.decStr[i] - '0') - carry);
+
+		// If subtraction is less than zero
+		// we add then we add 10 into sub and
+		// take carry as 1 for calculating next step
+		if (sum < 0) {
+			sum = sum + 10;
+			carry = 1;
+		}
+		else
+			carry = 0;
+
+		result.push_back(sum + '0');
+	}
+
+	// subtract remaining digits of larger number
+        for (int i = l1; i < l2; i++) {
+		 sum = ((decStr[i] - '0') - carry);
+
+		// if the sub value is -ve, then make it positive
+		if (sum < 0) {
+			sum = sum + 10;
+			carry = 1;
+		}
+		else
+			carry = 0;
+
+		result.push_back(sum + '0');
+	}
+	result.push_back('-');
+    }
 
 
 
 
     reverse(result.begin() , result.end()) ;
 
-    if(result[0]=='0')
-      result.erase(remove(result.begin(),result.end(),result[0]),result.end());
-    if(result[1]=='0' && result[0]=='-')
-    result.erase(remove(result.begin(),result.end(),result[1]),result.end());
     if(carry == 1){
         result2.push_back('-');
         reverse(result2.begin() , result2.end()) ;
-        if(result2[1]=='0'){
-            result2.erase(remove(result2.begin(),result2.end(),result2[1]),result2.end());
-        }
             decStr = result2;
             return BigDecimalInt(decStr);
     }
@@ -401,7 +374,8 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
     }
 }
 
-bool BigDecimalInt :: operator < (BigDecimalInt num3) 
+
+bool BigDecimalInt :: operator < (BigDecimalInt num3)
 {
     int temp1 ,temp2, temp3 ,temp4,temp5;
     temp1= decStr.size();

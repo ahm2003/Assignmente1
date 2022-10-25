@@ -3,14 +3,14 @@ using namespace std ;
 int main(){
 /*
     BigDecimalInt n1("+999999999"); 
-    BigDecimalInt n2("+99999999");
+    BigDecimalInt n2("+9999999999");
     n1=n1-n2;
     cout<<n1.getNum()<<endl;
 
     BigDecimalInt b1("-999999999999999999999999998999999999999999999999999999999999999999999999999") ;
     cout<<b1.size()<<endl;
     cout<<b1.sign()<<endl;
-*/    
+  */ 
 /*    BigDecimalInt b1("+13") ,b2("+99999999999999999999999999999999999999999999999999999999999999999999999999");
     if (b1 < b2)
         cout<<"1";

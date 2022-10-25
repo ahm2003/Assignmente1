@@ -91,12 +91,12 @@ int BigDecimalInt :: sign(){
         return '-';
 }
 int BigDecimalInt :: size(){
-    len= decStr.size();
+    len = decStr.size();
     return len;
 }
-BigDecimalInt :: BigDecimalInt(): decStr("0"){} ;
-
-//BigDecimalInt :: BigDecimalInt(): decStr("0"){}
+BigDecimalInt :: BigDecimalInt(){
+    decStr="0";
+}
 
 bool BigDecimalInt :: checkInput(string num)
 {
@@ -396,10 +396,6 @@ bool BigDecimalInt::operator == (BigDecimalInt num3)
 }
     return flag;
 }
-
-
-
-
 
 
 

@@ -373,7 +373,86 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
     }
 }
 
+bool BigDecimalInt :: operator < (BigDecimalInt num3) 
+{
+    int temp1 ,temp2, temp3 ,temp4,temp5;
+    temp1= decStr.size();
+    temp2= num3.decStr.size();
+    if (decStr[0]=='+'&&num3.decStr[0]=='-'){
+        flag=1;
+    }
+    else if (decStr[0]=='-'&&num3.decStr[0]=='+'){
+        flag=0;
+    }
+    else if (decStr[0]=='+'&&num3.decStr[0]=='+'&& temp1>temp2){
+        flag=1;
+    }
+    else if (decStr[0]=='+'&&num3.decStr[0]=='+'&& temp1<temp2){
+        flag=0;
 
+    }
+    else if (decStr[0]=='-'&&num3.decStr[0]=='-'&& temp1>temp2){
+        flag=0;
+    }
+    else if (decStr[0]=='-'&&num3.decStr[0]=='-'&& temp1<temp2){
+        flag=1;
+    }
+    else if (decStr[0]=='-'&&num3.decStr[0]=='+'){
+        flag=0;
+    }
+    else if (temp1 ==temp2 && decStr[0]=='+'&&num3.decStr[0]=='+'){
+        for (int i =0 ; i<=temp1-1;i++)
+        {
+        stringstream s1 , s2;
+        s1<<decStr[i];
+        s1>>temp3;
+        s2<<num3.decStr[i];
+        s2>>temp4;
+        if(temp3>temp4){
+            temp5=temp3;
+            break;
+        }
+        else if (temp4>temp3){
+            temp5=temp4;
+            break;
+        }
+        }
+    if (temp5==temp3)
+        return true;
+    else if (temp5==temp4)
+        flag=0;
+       }
+    else if (temp1 ==temp2 && decStr[0]=='-'&&num3.decStr[0]=='-'){
+        for (int i = 1  ; i<=temp1-1;i++)
+        {
+        stringstream s1 , s2;
+        s1<<decStr[i];
+        s1>>temp3;
+        s2<<num3.decStr[i];
+        s2>>temp4;
+        if(temp3>temp4){
+            temp5=temp3;
+            break;
+        }
+        else if (temp4>temp3){
+            temp5=temp4;
+            break;
+
+        }
+        }
+    if (temp5==temp3)
+        flag=0;
+    else if (temp5==temp4)
+        flag=1;
+
+
+    }
+    if(flag==1){
+        return false;
+    }
+    return true ;
+
+}
 
 bool BigDecimalInt::operator == (BigDecimalInt num3)
 {

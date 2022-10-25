@@ -279,14 +279,11 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
         int carry = 0;
 
         for (int i = 0; i < l2; i++) {
-		// Do school mathematics, compute difference of
-		// current digits
+
 
 		 sum= ((decStr[i] - '0') - (num2.decStr[i] - '0') - carry);
 
-		// If subtraction is less than zero
-		// we add then we add 10 into sub and
-		// take carry as 1 for calculating next step
+
 		if (sum < 0) {
 			sum = sum + 10;
 			carry = 1;
@@ -297,11 +294,11 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
 		result.push_back(sum + '0');
 	}
 
-	// subtract remaining digits of larger number
+
         for (int i = l2; i < l1; i++) {
 		 sum = ((decStr[i] - '0') - carry);
 
-		// if the sub value is -ve, then make it positive
+
 		if (sum < 0) {
 			sum = sum + 10;
 			carry = 1;
@@ -322,14 +319,11 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
         int carry = 0;
 
         for (int i = 0; i < l1; i++) {
-		// Do school mathematics, compute difference of
-		// current digits
+
 
 		 sum= ((decStr[i] - '0') - (num2.decStr[i] - '0') - carry);
 
-		// If subtraction is less than zero
-		// we add then we add 10 into sub and
-		// take carry as 1 for calculating next step
+
 		if (sum < 0) {
 			sum = sum + 10;
 			carry = 1;
@@ -340,11 +334,11 @@ BigDecimalInt BigDecimalInt :: operator - (BigDecimalInt num2){
 		result.push_back(sum + '0');
 	}
 
-	// subtract remaining digits of larger number
+
         for (int i = l1; i < l2; i++) {
 		 sum = ((decStr[i] - '0') - carry);
 
-		// if the sub value is -ve, then make it positive
+
 		if (sum < 0) {
 			sum = sum + 10;
 			carry = 1;
